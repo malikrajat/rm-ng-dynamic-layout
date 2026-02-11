@@ -11,6 +11,11 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "experimentalDecorators": true,
+    "paths": {
+      "rm-ng-dynamic-layout": [
+        "./dist/rm-ng-dynamic-layout"
+      ]
+    },
     "importHelpers": true,
     "target": "ES2022",
     "module": "preserve"
@@ -21,5 +26,19 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/rm-ng-dynamic-layout/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/rm-ng-dynamic-layout/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/rm-ng-dynamic-layout-main/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/rm-ng-dynamic-layout-main/tsconfig.spec.json"
+    }
+  ]
 }
