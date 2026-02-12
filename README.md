@@ -1,59 +1,157 @@
-# 
+# RM Angular Dynamic Layout
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0-next.3.
+Content-agnostic CSS Grid utilities and components for modern Angular. Zero JS overhead for layout, rich responsive utilities, and theming via CSS variables.
 
-## Development server
+## Table of Contents
+- Features
+- Live Demo
+- Why This Library
+- Installation
+- Quick Start
+- Usage
+- API Reference
+- Advanced Configuration
+- Peer Dependencies
+- Best Practices
+- Performance Optimization
+- Browser Support
+- Versioning & Angular Compatibility
+- Breaking Changes
+- FAQ
+- Troubleshooting
+- Project Structure
+- Contributing Guidelines
+- Roadmap
+- Changelog
+- License
+- Examples
+- Support & Community
+- Acknowledgements
+- References
 
-To start a local development server, run:
+## Features
+- Standalone Angular components (`rm-layout`, `rm-layout-item`)
+- Mobile-first responsive utilities (columns, spans, gaps, alignment)
+- Declarative area grids (template areas, rows, columns)
+- Theming with CSS custom properties
+- Works with nested layouts and complex dashboards
 
+## Live Demo
+- Examples app routes: `/examples` in the demo application
+- Browse code samples in `examples/` and docs in `docs/`
+
+## Why This Library
+- Content-agnostic grid primitives built for Angular
+- Declarative, ergonomic, and highly customizable
+- Scales from simple grids to complex area-based dashboards
+- See `docs/WHY_THIS_LIBRARY.md`
+
+## Installation
 ```bash
-ng serve
+npm install rm-ng-dynamic-layout
+```
+Import standalone components where needed.
+- See `docs/INSTALLATION.md`
+
+## Quick Start
+```ts
+import { Component } from '@angular/core';
+import { LayoutComponent, LayoutItemComponent } from 'rm-ng-dynamic-layout';
+
+@Component({
+  selector: 'app-quick-start',
+  standalone: true,
+  imports: [LayoutComponent, LayoutItemComponent],
+  template: `
+    <rm-layout [config]="{ columns: 12, gap: '1rem' }">
+      <rm-layout-item [colSpan]="8">Main</rm-layout-item>
+      <rm-layout-item [colSpan]="4">Side</rm-layout-item>
+    </rm-layout>
+  `
+})
+export class QuickStartComponent {}
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Usage
+- Concepts, spans, areas, responsiveness, and styling
+- See `docs/USAGE.md`
 
-## Code scaffolding
+## API Reference
+- Components, inputs, utility classes, CSS variables
+- See `docs/API_REFERENCE.md`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Advanced Configuration
+- Responsive overrides and named areas
+- Alignment and ordering
+- Data-driven layouts
+- See `docs/ADVANCED_CONFIGURATION.md`
 
-```bash
-ng generate component component-name
-```
+## Peer Dependencies
+- Angular 17+, TypeScript 5+, Node 18+, npm 9+
+- See `docs/PEER_DEPENDENCY.md`
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Best Practices
+- Maintainable and accessible layout patterns
+- Theming via CSS variables, scoping classes, clear area names
+- See `docs/BEST_PRACTICES.md`
 
-```bash
-ng generate --help
-```
+## Performance Optimization
+- Utility classes, minimal DOM nesting, avoid heavy re-rendering
+- Build optimizations
+- See `docs/PERFORMANCE_OPTIMIZATION.md`
 
-## Building
+## Browser Support
+- Modern evergreen browsers; IE not supported
+- See `docs/BROWSER_SUPPORT.md`
 
-To build the project run:
+## Versioning & Angular Compatibility
+- Semantic versioning and compatibility guarantees
+- Notes on supported Angular versions
+- See `docs/VERSIONING_SUPPORT.md`
 
-```bash
-ng build
-```
+## Breaking Changes
+- Policy and migration guidance
+- See `docs/BREAKING_CHANGE_POLICY.md`
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## FAQ
+- Common questions and usage tips
+- See `docs/FAQ.md`
 
-## Running unit tests
+## Troubleshooting
+- Template parse errors, style application, responsive behavior, build errors
+- See `docs/TROUBLESHOOTING.md`
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Project Structure
+- Repository layout and key folders
+- See `docs/PROJECT_STRUCTURE.md`
 
-```bash
-ng test
-```
+## Contributing Guidelines
+- Please follow Angular/TypeScript best practices
+- See `projects/rm-ng-dynamic-layout/CONTRIBUTING.md`
 
-## Running end-to-end tests
+## Roadmap
+- Planned improvements and milestones
+- See `docs/ROADMAP.md`
 
-For end-to-end (e2e) testing, run:
+## Changelog
+- Documentation changelog: `docs/CHANGELOG.md`
+- Library release notes: `projects/rm-ng-dynamic-layout/CHANGELOG.md`
 
-```bash
-ng e2e
-```
+## License
+- Documentation and examples follow the same license as the library
+- See `docs/LICENSE.md` and `projects/rm-ng-dynamic-layout/LICENSE`
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Examples
+- Explore code samples in `examples/`:
+  - `basic`, `large-scale`, `advanced`, `configurable`, `customized`, `responsive`, `grid-areas`, `theming`
+- Run the demo app and open `/examples` route
 
-## Additional Resources
+## Support & Community
+- Issues and discussions in this repo
+- PRs welcome
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Acknowledgements
+- Inspired by well-structured Angular component documentation styles
+
+## References
+- rm-ng-star-rating Wiki (structure reference): https://github.com/malikrajat/rm-ng-star-rating/wiki
