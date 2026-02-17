@@ -1,0 +1,24 @@
+<h3>Responsive Config API</h3>
+<rm-layout [responsive]="layout" class="rm-layout rm-layout--full-width">
+  <rm-layout-item class="rm-item-span-12 rm-item-md-span-8 rm-item-lg-span-6 tile">Primary</rm-layout-item>
+  <rm-layout-item class="rm-item-span-12 rm-item-md-span-8 rm-item-lg-span-6 tile">Secondary</rm-layout-item>
+</rm-layout>
+
+<h3>Alignment and Ordering</h3>
+<rm-layout [config]="{ columns: 12, gap: '1rem' }">
+  <rm-layout-item [colSpan]="4" justifySelf="center" alignSelf="center" class="tile">Centered</rm-layout-item>
+  <rm-layout-item [colSpan]="4" class="rm-layout-item--stretch tile">Stretch</rm-layout-item>
+  <rm-layout-item [colSpan]="4" [order]="-1" class="tile">First (reordered)</rm-layout-item>
+</rm-layout>
+
+<h3>Areas with Dynamic Regions</h3>
+<rm-layout [config]="{ templateColumns: '240px 1fr', templateRows: '64px 1fr 48px', templateAreas: areas }">
+  <ng-container *ngFor="let r of regions">
+    <rm-layout-item [area]="r.name" class="tile">{{ r.content }}</rm-layout-item>
+  </ng-container>
+</rm-layout>
+
+<h3>Data-Driven Item Spans</h3>
+<rm-layout [config]="{ columns: 12, gap: '1rem' }">
+  <rm-layout-item *ngFor="let it of items" [colSpan]="it.span" class="tile">{{ it.title }}</rm-layout-item>
+</rm-layout>
