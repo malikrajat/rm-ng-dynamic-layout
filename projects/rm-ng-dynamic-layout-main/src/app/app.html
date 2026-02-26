@@ -1,0 +1,295 @@
+<!-- Navigation Header -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <span class="brand-icon">🚀</span>
+      <span class="brand-text">{{ title() }}</span>
+    </div>
+    <div class="nav-links">
+      <a (click)="scrollToSection('hero')" [class.active]="activeSection() === 'hero'">Home</a>
+      <a (click)="scrollToSection('features')" [class.active]="activeSection() === 'features'">Features</a>
+      <a (click)="scrollToSection('examples')" [class.active]="activeSection() === 'examples'">Examples</a>
+      <a (click)="scrollToSection('showcase')" [class.active]="activeSection() === 'showcase'">Showcase</a>
+      <button class="theme-btn" (click)="toggleTheme()" [attr.aria-label]="'Switch to ' + (currentTheme() === 'light' ? 'dark' : 'light') + ' theme'">
+        {{ currentTheme() === 'light' ? '🌙' : '☀️' }}
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero" class="hero-section">
+  <div class="hero-container">
+    <rm-layout cssClass="hero-layout" [columns]="1">
+      <rm-layout-item cssClass="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="gradient-text">Angular Dynamic Layout</span>
+            <br>
+            <span class="subtitle">Content-Agnostic CSS Grid Library</span>
+          </h1>
+          <p class="hero-description">
+            Build flexible, responsive layouts with zero JavaScript overhead. 
+            Works with any content - from dashboards to portfolios.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" (click)="scrollToSection('examples')">
+              <span>View Examples</span>
+              <span class="btn-icon">→</span>
+            </button>
+            <button class="btn btn-secondary">
+              <span>📚 Documentation</span>
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">90+</span>
+              <span class="stat-label">Utility Classes</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">35+</span>
+              <span class="stat-label">CSS Variables</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">0</span>
+              <span class="stat-label">JS Overhead</span>
+            </div>
+          </div>
+        </div>
+      </rm-layout-item>
+    </rm-layout>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features-section">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">Why Choose Our Library?</h2>
+      <p class="section-subtitle">Powerful features designed for modern Angular applications</p>
+    </div>
+    
+    <rm-layout cssClass="features-grid rm-layout-cols-1 rm-layout-md-2 rm-layout-lg-3 rm-layout-gap-lg">
+      <rm-layout-item *ngFor="let feature of features" cssClass="feature-card">
+        <div class="feature-content">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-description">{{ feature.description }}</p>
+        </div>
+      </rm-layout-item>
+    </rm-layout>
+  </div>
+</section>
+
+<!-- Examples Section -->
+<section id="examples" class="examples-section">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">Live Examples</h2>
+      <p class="section-subtitle">See the library in action with interactive demos</p>
+    </div>
+
+    <router-outlet></router-outlet>
+
+    <!-- Basic Grid Layout -->
+    <div class="example-block">
+      <div class="example-header">
+        <h3 class="example-title">📊 Basic Grid Layout</h3>
+        <p class="example-description">Simple 3-column grid with spanning elements</p>
+      </div>
+      <rm-layout [columns]="3" gap="1.5rem" cssClass="example-grid">
+        <rm-layout-item [colSpan]="2" cssClass="grid-item header-item">
+          <div class="item-content">
+            <span class="item-icon">📋</span>
+            <span class="item-text">Header (spans 2 columns)</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item cssClass="grid-item sidebar-item">
+          <div class="item-content">
+            <span class="item-icon">📂</span>
+            <span class="item-text">Sidebar</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item cssClass="grid-item main-item">
+          <div class="item-content">
+            <span class="item-icon">📄</span>
+            <span class="item-text">Main Content</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item cssClass="grid-item secondary-item">
+          <div class="item-content">
+            <span class="item-icon">📊</span>
+            <span class="item-text">Analytics</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item cssClass="grid-item tertiary-item">
+          <div class="item-content">
+            <span class="item-icon">⚙️</span>
+            <span class="item-text">Settings</span>
+          </div>
+        </rm-layout-item>
+      </rm-layout>
+    </div>
+
+    <!-- Responsive Layout -->
+    <div class="example-block">
+      <div class="example-header">
+        <h3 class="example-title">📱 Pure CSS Responsive</h3>
+        <p class="example-description">Mobile: 1 column → Tablet: 2 columns → Desktop: 4 columns</p>
+      </div>
+      <rm-layout cssClass="example-grid rm-layout-cols-1 rm-layout-md-2 rm-layout-lg-4 rm-layout-gap-md">
+        <rm-layout-item cssClass="grid-item responsive-item">
+          <div class="item-content">
+            <span class="item-icon">📱</span>
+            <span class="item-text">Mobile First</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item cssClass="grid-item responsive-item">
+          <div class="item-content">
+            <span class="item-icon">💻</span>
+            <span class="item-text">Tablet Ready</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item cssClass="grid-item responsive-item">
+          <div class="item-content">
+            <span class="item-icon">🖥️</span>
+            <span class="item-text">Desktop Optimized</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item cssClass="grid-item responsive-item">
+          <div class="item-content">
+            <span class="item-icon">📺</span>
+            <span class="item-text">Large Screens</span>
+          </div>
+        </rm-layout-item>
+      </rm-layout>
+    </div>
+
+    <!-- Dashboard Layout -->
+    <div class="example-block">
+      <div class="example-header">
+        <h3 class="example-title">🏢 Dashboard Layout</h3>
+        <p class="example-description">Named grid areas for semantic layouts</p>
+      </div>
+      <rm-layout 
+        [config]="{
+          templateAreas: `
+            'header header header'
+            'nav main widgets'
+            'footer footer footer'
+          `,
+          templateColumns: '200px 1fr 250px',
+          templateRows: 'auto 1fr auto',
+          gap: '1rem'
+        }" 
+        cssClass="example-grid dashboard-grid">
+        <rm-layout-item area="header" cssClass="grid-item dashboard-header">
+          <div class="item-content">
+            <span class="item-icon">🏠</span>
+            <span class="item-text">Dashboard Header</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item area="nav" cssClass="grid-item dashboard-nav">
+          <div class="item-content">
+            <span class="item-icon">🧭</span>
+            <span class="item-text">Navigation</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item area="main" cssClass="grid-item dashboard-main">
+          <div class="item-content">
+            <span class="item-icon">📈</span>
+            <span class="item-text">Main Dashboard</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item area="widgets" cssClass="grid-item dashboard-widgets">
+          <div class="item-content">
+            <span class="item-icon">🔧</span>
+            <span class="item-text">Widgets</span>
+          </div>
+        </rm-layout-item>
+        <rm-layout-item area="footer" cssClass="grid-item dashboard-footer">
+          <div class="item-content">
+            <span class="item-icon">ℹ️</span>
+            <span class="item-text">Footer Information</span>
+          </div>
+        </rm-layout-item>
+      </rm-layout>
+    </div>
+  </div>
+</section>
+
+<!-- Showcase Section -->
+<section id="showcase" class="showcase-section" [class]="'theme-' + currentTheme()">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">Portfolio Showcase</h2>
+      <p class="section-subtitle">Real-world examples of layouts you can build</p>
+      <button class="theme-toggle-btn" (click)="toggleTheme()">
+        {{ currentTheme() === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode' }}
+      </button>
+    </div>
+    
+    <rm-layout cssClass="showcase-grid rm-layout-cols-1 rm-layout-md-2 rm-layout-lg-3 rm-layout-gap-lg">
+      <rm-layout-item *ngFor="let item of portfolioItems; let i = index" 
+                      [cssClass]="'showcase-item ' + item.color"
+                      [style.--delay]="i * 0.1 + 's'">
+        <div class="showcase-content">
+          <div class="showcase-image">
+            <div class="image-placeholder">
+              <span class="placeholder-icon">🎨</span>
+            </div>
+          </div>
+          <div class="showcase-info">
+            <span class="showcase-category">{{ item.category }}</span>
+            <h4 class="showcase-title">{{ item.title }}</h4>
+            <p class="showcase-description">
+              Built with RM Dynamic Layout using CSS Grid and responsive utilities.
+            </p>
+            <button class="showcase-btn">View Details →</button>
+          </div>
+        </div>
+      </rm-layout-item>
+    </rm-layout>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <rm-layout cssClass="footer-layout rm-layout-cols-1 rm-layout-md-3 rm-layout-gap-lg">
+      <rm-layout-item cssClass="footer-section">
+        <h4 class="footer-title">RM Dynamic Layout</h4>
+        <p class="footer-text">
+          The most flexible Angular layout library for modern web applications.
+        </p>
+        <div class="footer-links">
+          <a href="#" class="footer-link">GitHub</a>
+          <a href="#" class="footer-link">npm</a>
+          <a href="#" class="footer-link">Docs</a>
+        </div>
+      </rm-layout-item>
+      <rm-layout-item cssClass="footer-section">
+        <h4 class="footer-title">Quick Links</h4>
+        <div class="footer-nav">
+          <a (click)="scrollToSection('features')" class="footer-nav-link">Features</a>
+          <a (click)="scrollToSection('examples')" class="footer-nav-link">Examples</a>
+          <a (click)="scrollToSection('showcase')" class="footer-nav-link">Showcase</a>
+        </div>
+      </rm-layout-item>
+      <rm-layout-item cssClass="footer-section">
+        <h4 class="footer-title">Get Started</h4>
+        <div class="install-command">
+          <code>npm install rm-ng-dynamic-layout</code>
+        </div>
+        <p class="footer-text">
+          Start building amazing layouts in minutes.
+        </p>
+      </rm-layout-item>
+    </rm-layout>
+    <div class="footer-bottom">
+      <p>&copy; 2026 RM Dynamic Layout. Built with ❤️ for the Angular community.</p>
+    </div>
+  </div>
+</footer>
+
+<router-outlet />
