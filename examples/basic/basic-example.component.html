@@ -1,0 +1,19 @@
+<h3>Basic Grid</h3>
+<rm-layout [config]="{ columns: 12, gap: '1rem' }" class="rm-layout">
+  <rm-layout-item [colSpan]="12" class="tile">Full-width banner</rm-layout-item>
+  <rm-layout-item [colSpan]="6" class="tile">Left</rm-layout-item>
+  <rm-layout-item [colSpan]="6" class="tile">Right</rm-layout-item>
+  <rm-layout-item [colSpan]="4" class="tile">A</rm-layout-item>
+  <rm-layout-item [colSpan]="4" class="tile">B</rm-layout-item>
+  <rm-layout-item [colSpan]="4" class="tile">C</rm-layout-item>
+</rm-layout>
+
+<h3>Utility Classes</h3>
+<rm-layout class="rm-layout rm-layout-cols-12 rm-layout-gap-md">
+  <rm-layout-item class="rm-item-span-full tile">Full-width banner</rm-layout-item>
+  <rm-layout-item class="rm-item-span-6 tile">Left</rm-layout-item>
+  <rm-layout-item class="rm-item-span-6 tile">Right</rm-layout-item>
+  <rm-layout-item class="rm-item-span-4 tile">A</rm-layout-item>
+  <rm-layout-item class="rm-item-span-4 tile">B</rm-layout-item>
+  <rm-layout-item class="rm-item-span-4 tile">C</rm-layout-item>
+</rm-layout>
