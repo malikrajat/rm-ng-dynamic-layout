@@ -1,0 +1,12 @@
+<h3>Service-Provided Config (Simulated)</h3>
+<rm-layout [responsive]="shell" class="rm-layout rm-layout--full-height">
+  <rm-layout-item area="header" class="tile">Header</rm-layout-item>
+  <rm-layout-item area="sidebar" class="tile">Sidebar</rm-layout-item>
+  <rm-layout-item area="content" class="tile">
+    <rm-layout [responsive]="content">
+      <rm-layout-item [colSpan]="8" class="tile">Main</rm-layout-item>
+      <rm-layout-item [colSpan]="4" class="tile">Right rail</rm-layout-item>
+    </rm-layout>
+  </rm-layout-item>
+  <rm-layout-item area="footer" class="tile">Footer</rm-layout-item>
+</rm-layout>
